@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+fieldset{width:430px;margin-left:10px;}
+.txtare{width: 350px;height: 80px;}
+.txt{height: 20px;width: 350px;}
+ul{list-style:none;}
+ul img{
+	float:left;
+}
+ul div{
+	float:left;
+	margin-left: 2px;
+}
+ul li{
+	clear: both;
+	padding-top: 15px;
+	
+}
+ul ul{
+	margin-left: 20px;
+	
+}
+ul ul li img{
+	width:35px;
+	height: 35px;
+	
+}
+.rep-txtare{
+	height:50px;width:250px;	
+}
+.rep-txt{
+	height:18px;width:250px;	
+}
+#fild{
+	width:300px;
+	margin-left:60px;
+}

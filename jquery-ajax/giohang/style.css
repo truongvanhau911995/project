@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+  #container{
+    	margin: 0 auto;
+    	width: 600px;
+    	height: 600px;
+    }
+    .row{
+    	float: left;
+    	width: 200px;
+    	height:300px;
+        margin-left: 20px;    
+    	border-radius: 4px;
+    	box-shadow: inset 1px 1px 5px #888;
+    	padding-top: 20px;
+    	text-align: center;
+    }
+    .row img{
+    	width:  140px;
+    	height: 140x;
+    	border-radius: 7px;
+    	
+    }
+    .money{
+    	color: red;
+    }
+    #container > p{
+    	color: blue;
+    }
+ 
+ /*=================CHI TIET SP=============*/
+#left{
+	float: left;
+	width: 180px;
+	border: 1px solid #804040;
+	height: 240px;
+	text-align: center;
+
+}
+#left img{
+	margin: 0px;
+	width: 140px;
+	border: 1px solid #804040;
+	height: 180px;
+	position:relative ;
+	top: 30px;
+}
+#right{
+	float: left;
+	width: 250px;
+	height: 240px;
+	border: 1px solid #804040;
+	text-align: center;
+}
+#footer{
+	clear: both;
+	width: 431px;
+	height: 300px;
+	border: 1px solid #804040;
+}
+
+/*=================cart=============*/
+#content-cart table, th, td {
+	border-radius: 2px;
+	box-shadow: inset 1px 1px 5px #808040;
+	border-collapse:collapse;
+	width: 600px;
+	height:30px;
+	text-align: center;
+	
+}
+#content-cart th {
+	border-radius: 2px;
+	box-shadow: inset 1px 1px 5px #408080;
+	background-color:red;
+	color: #ffffff;
+	
+}
+
+
+
+
+
+

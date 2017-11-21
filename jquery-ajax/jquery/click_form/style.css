@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+td{
+	color: #09F;
+	font-weight:bold;
+}
+input{
+	border: 0px;
+}
+
+#username, #password{
+	box-shadow: inset 1px 1px 5px #888;
+	border-radius:5px;
+	padding: 6px;
+}
+
+#login{
+	background: #09F;
+	font-weight: bold;
+	border-radius: 4px;
+	padding: 4px;
+	opacity: 0.8;/*làm mờ*/
+}
+#login:hover{
+	cursor: pointer;
+}
+.err{
+	margin: 2px 0 0 7px;
+	color: red;
+	display: none;
+}

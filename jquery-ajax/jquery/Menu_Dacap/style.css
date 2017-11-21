@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+*{
+	margin: 0px; padding: 0px;
+}
+
+#container{
+	margin: 0 auto;
+	width: 600px;
+	height: 300px;
+	border: 1px solid #F5F5F5;
+	box-shadow: inset 1px 1px 9px #888;
+	border-radius:5px;
+	padding: 6px;
+	margin-top: 20px;
+	text-align: center;
+	 
+}
+
+#menu li{/*chọn tất ca thuoc tinh li nam trong ul */
+	float: left;
+	width: 100px;
+	text-align: center;
+	background-color: #369;
+	line-height:30px;
+	list-style: none;
+	position: relative;
+}
+#menu li a{
+	text-decoration: none;
+}
+#menu ul{
+	position: absolute;
+	display: none;
+}
+
+#menu ul ul{/*lựa chon the ul trong cung*/
+	left: 100px;
+	top: -1px;
+	display: none;
+}
+
+#menu li:hover{
+	background-color: red;
+}
+
+#menu >li{/*chọn thang ke thang cha nhat*/
+	border-right: 2px solid #999;
+}
+#menu  ul li{/*chon the ul ke thang cha*/
+	background-color: #E0FFFF; border-top: 1px solid #CCC;
+}
+#menu  ul ul li{/*chon the li trong cung*/
+	background-color: #FFFFE0; border-top: 1px solid #CCC;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

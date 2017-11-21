@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+#container{
+    	margin: 0 auto;
+    	width: 600px;
+    	height: 600px;
+    }
+    
+tr >td{
+	width:150px;
+}
