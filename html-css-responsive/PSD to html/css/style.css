@@ -1,0 +1,86 @@
+
+body{
+	background-color: #FDFAFA;
+}
+#myNavbar ul li a{
+	
+	font-weight: bold;
+	color: #ffffff !important;
+	font-family:Roboto;
+
+}
+/* #myNavbar{
+	overflow:hidden !important;tắt sroll
+} */
+/* ==============chinh menu-top=============== */
+.navbar-brand {
+	padding: 0;	
+	margin: 0;
+	height: 100%;
+}
+
+.navbar-header {
+	height: 100%;/* thuoc tinh nay dung để bao hết hình */
+}
+.navbar-toggle{
+	    color: white !important;
+}
+.navbar-toggle:hover{
+	  background-color: #DDDDDD !important;
+	    color: white !important;
+}
+
+.navbar{
+	background-color: rgba(16,22,54, 0.5);
+	border: 0;
+	margin: 0;
+}
+.navbar-collapse {
+	position:relative;
+	top: 16px;
+}
+
+#services .glyphicon{
+	color: #67B459;
+	font-size: 60px;
+}
+
+h2{
+	font-weight: bold;
+}
+/* =============noi dung tren slider =====================*/
+.carousel-caption {
+	padding-bottom: 110px !important;
+}
+/* ===========services================= */
+
+#services{
+	padding-bottom: 40px;
+}
+#services >div{
+	margin-top: 80px;
+}
+
+
+/* slide animation*/
+.slideanim{
+  visibility: hidden;
+}
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide; /* Safari 4.0 - 8.0 */
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    visibility: visible;
+}
+
+/* Safari 4.0 - 8.0 */
+@keyframes slide {
+    0%   {opacity: 0;transform: translateY(70%);}
+    100% {opacity: 1;transform: translateY(0%);}
+}
+/* Standard syntax, chrome , opera */
+@-webkit-keyframes slide {
+    0%   {opacity: 0;-webkit-transform: translateY(70%);}
+    100% {opacity: 1;-webkit-transform: translateY(0%);}
+}

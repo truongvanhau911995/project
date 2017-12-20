@@ -1,0 +1,12 @@
+.container{
+	margin: 150px auto;	
+}
+
+.container img{
+	transition: 2s;
+}
+.container:hover img{
+	/* transform: rotate(45deg); */
+	transform: scale(1.3); /* luc re vao anh to len */
+	/* transform: skew(45deg);  kiểu nghieng*/
+}	
