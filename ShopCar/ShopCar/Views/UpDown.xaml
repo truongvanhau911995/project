@@ -1,0 +1,20 @@
+﻿<Window x:Class="ShopCar.Views.UpDown"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopCar.Views"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        xmlns:Ud ="clr-namespace:eisiWare;assembly=NumericUpDown"
+        HorizontalAlignment="Center"
+        WindowStartupLocation="CenterScreen"
+        Width="220" Height="70"
+        >
+    <WrapPanel VerticalAlignment="Center">
+        <Label FontWeight="Bold" >Thêm: </Label>
+        <Ud:NumericUpDown Name="udSL" Height="30" Width="40"></Ud:NumericUpDown>
+        <Label FontWeight="Bold">Sản Phẩm</Label>
+        <Button Height="30" Click="Button_Click">Update</Button>
+    </WrapPanel>
+</Window>

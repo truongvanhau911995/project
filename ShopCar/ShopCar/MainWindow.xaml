@@ -1,0 +1,448 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopCar"
+        xmlns:Views="clr-namespace:ShopCar.Views" x:Class="ShopCar.MainWindow"
+        mc:Ignorable="d"
+        KeyDown="txtTimKiem_KeyDown"
+        Title="HomePage" Height="600" Width="900" MinHeight="460" MinWidth="570"
+        WindowState="Maximized"
+      
+        Background="#2E2E2E"
+    
+        Icon="Image/Lap.png" Loaded="Window_Loaded">
+    <!--su dung cho dang nhap--> 
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="NewCommand_Executed" CanExecute="NewCommand_CanExecute" />
+    </Window.CommandBindings>
+
+    <Window.Resources>
+        <!--SliderBar -->
+        <Storyboard x:Key="sbShowLeftMenu" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio=".5" Duration="0:0:0.5" />
+        </Storyboard>
+        <Storyboard x:Key="sbHideLeftMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" AccelerationRatio=".5" Duration="0:0:0.5" />
+        </Storyboard>
+    </Window.Resources>
+
+    <ScrollViewer  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Column="2">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Menu -->
+            <StackPanel Background="Transparent" Grid.RowSpan="2" Panel.ZIndex="2" x:Name="pnlLeftMenu" Orientation="Horizontal" HorizontalAlignment="Left" Margin="-150,0,0,0" Width="207" Grid.ColumnSpan="2">
+                <Border Opacity="0.8" BorderBrush="#050505" BorderThickness="1" Width="205" Background="#050505"  >
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel  VerticalAlignment="Top" Panel.ZIndex="3" HorizontalAlignment="Left" Height="268" Width="205" Margin="0,0,-1,0">
+                            <TextBlock Style="{StaticResource ChiTietMenu}"><Run Text="Menu"/></TextBlock>
+                            <TextBlock Style="{StaticResource ChiTietMenu}"><Run Text="Home"/></TextBlock>
+                            <TextBlock Style="{StaticResource ChiTietMenu}"><Run Text="LapTop"/></TextBlock>
+
+
+                        </StackPanel>
+
+                        <StackPanel Background="Transparent" VerticalAlignment="Bottom" Panel.ZIndex="3" HorizontalAlignment="Left" Grid.Row="1" Height="270" Width="205"  >
+                            <Border  x:Name="txtDate"  BorderBrush="Aqua" BorderThickness="1" Height="50" CornerRadius="10" Margin="0,0,2,0">
+                                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="21,4,12,4" Width="168" Height="40"  >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock  x:Name="txtClock" Text="20:20:20" FontSize="25" FontWeight="Bold"  Foreground="Blue" Grid.ColumnSpan="2" Margin="0,0,52,0"/>
+                                    <Image x:Name="txtIClock" Grid.Column="1" Width="40" Height="35"  Source="Image/Clock.png" Margin="5,2,-5,2"/>
+                                </Grid>
+                            </Border>
+                            <TextBlock Height="11"/>
+                            <TextBlock x:Name="txtNameUser" Padding="0,12.5,0,0" Foreground="Blue" FontSize="20" Height="55" Margin="75,10,0,0" Opacity="0.7" Text="Khách hàng ?"/>
+                            <TextBlock  Style="{StaticResource ChiTietMenu}"><Run Text="Cart"/></TextBlock>
+                            <TextBlock  Style="{StaticResource ChiTietMenu}"><Run Text="Settings"/></TextBlock>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <!--Menu Icon Bot -->
+            <StackPanel  Background="Transparent" VerticalAlignment="Top" Panel.ZIndex="3" HorizontalAlignment="Left" Width="55"   >
+                <Grid Background="Transparent" Panel.ZIndex="3"  Margin="0,10,0,10">
+                    <Button  Background="Transparent"  x:Name="btnLeftMenuHide" Width="auto" Height="auto" Click="btnLeftMenuHide_Click" Content="{StaticResource MenuImageHidden}" Visibility="Hidden" ToolTip="Menu"/>
+                    <Button  Background="Transparent"  x:Name="btnLeftMenuShow" Width="auto" Height="auto" Click="btnLeftMenuShow_Click" Content="{StaticResource MenuImageShow}"  ToolTip="Menu"/>
+                </Grid>
+
+                <Button  x:Name="btnHome" Click="btnHome_Click" Style="{StaticResource IconButton}"  Background="Transparent" Panel.ZIndex="3"  BorderThickness="0"  Width="55" Height="55"  Margin="0,0,0,10" >
+                    <Ellipse Width="50" Height="50">
+                        <Ellipse.Fill>
+                            <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="Image/Home.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+                <Button Style="{StaticResource IconButton}"  Name="btnTiemKiem" Click="btnTiemKiem_Click"  Panel.ZIndex="3" Foreground="Red" Width="55" Height="55" Background="Transparent" BorderThickness="0"  Margin="0,0,0,10">
+                    <Ellipse Width="50" Height="50">
+                        <Ellipse.Fill>
+                            <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="Image/Lap.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+                <Button Style="{StaticResource IconButton}"  Name="btnBack"  Click="btnBack_Click" Background="Transparent" BorderThickness="0" Width="55" Height="55" >
+                    <Ellipse Width="50" Height="50">
+                        <Ellipse.Fill>
+                            <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="Image/Arrow.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+            </StackPanel>
+
+            <!--Menu Icon Bot -->
+            <StackPanel Background="Transparent"  VerticalAlignment="Bottom" Panel.ZIndex="3" HorizontalAlignment="Left" Grid.Row="1" Height="206" Width="55"  >
+                <TextBlock Height="11"/>
+                <Button Style="{StaticResource IconButton}"   Background="Transparent" Command="ApplicationCommands.New" x:Name="btnUser" BorderThickness="0" Width="55" Height="55" Margin="0,0,0,10" >
+                    <Button.LayoutTransform >
+                        <RotateTransform x:Name="RotateTransform" Angle="0"/>
+                    </Button.LayoutTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="RotateTransform" 
+                                                     Storyboard.TargetProperty="Angle" 
+                                                     By="0"        
+                                                     To="-10" 
+                                                     FillBehavior="HoldEnd" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="RotateTransform" 
+                                                     Storyboard.TargetProperty="Angle" 
+                                                     By="-10"        
+                                                     To="0" 
+                                                     FillBehavior="HoldEnd" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Ellipse x:Name="eliUser" Width="55" Height="55" ToolTip="Chưa đăng nhập">
+                        <Ellipse.Fill>
+                            <ImageBrush  TileMode="None" Stretch="Uniform" ImageSource="Image/User.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+                <Button Style="{StaticResource IconButton}"  Name="bntGioHang" Background="Transparent" BorderThickness="0" Click="bntGioHang_Click" Margin="0,0,0,10" Foreground="Red" Width="55" Height="55">
+                    <Ellipse Width="50" Height="50">
+                        <Ellipse.Fill>
+                            <ImageBrush TileMode="Tile" Stretch="Fill" ImageSource="Image/Cart.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+                <Button Style="{StaticResource IconButton}"  Click="DangXuat_Click" Background="Transparent" BorderThickness="0" Width="55" Height="55" >
+                    <Ellipse Width="50" Height="50">
+                        <Ellipse.Fill>
+                            <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="Image/Setting.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+            </StackPanel>
+
+            <!--Shop View-->
+            <Grid Name="UserControlCenter"  Grid.Column="2" >
+                <StackPanel  Orientation="Horizontal" >
+
+                    <Grid   Name="hidden1" Margin="0,24,0,0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource StyleSanPham}" Foreground="Red" Text="Sản Phẩm Hot"/>
+                        <!--<ListBox ItemsSource="{Binding}" Grid.Row="1" IsSynchronizedWithCurrentItem="True" Padding="2"  x:Name="ListHot" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="Transparent" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource StyleHoverBorder}">
+                                        <Grid  Style="{StaticResource StyleGrid}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Style="{StaticResource StyleTenSanPham}" ><InlineUIContainer>
+                                                    <AccessText Text="{Binding TenSP}" TextWrapping="WrapWithOverflow"/>
+                                                </InlineUIContainer></TextBlock>
+                                            <TextBlock Style="{StaticResource StyleGiaSanPham}" >
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0:0,0} VND">
+                                                        <Binding Path="GiaSP"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                            <TextBlock x:Name="txtMoTaNgan" Style="{StaticResource StyleMoTaNgan}" Text="{Binding MoTaNgan}"/>
+                                            <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Width="320" Height="220" Margin="0,0,0,10"  Source="{Binding HinhSP}"/>
+                                            <Ellipse VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Width="40" Height="40">
+                                               
+                                            </Ellipse>
+                                            <StackPanel Cursor="Hand" Height="28"  Orientation="Horizontal" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right">
+                                                <Button Click="Mua_Click" Margin="0,0,10,0" >
+                                                    <WrapPanel>
+                                                        <TextBlock  Text="Mua" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                        <Image Margin="20,0,0,0" Source="Image/AddCart.png" Width="20"/>
+                                                    </WrapPanel>
+                                                </Button>
+                                                <Button Click="txtXemChiTiet_Click"  >
+                                                    <WrapPanel>
+                                                        <TextBlock Text="Xem" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                        <Image Margin="20,0,0,0" Source="Image/More.png" Width="20"/>
+                                                    </WrapPanel>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>-->
+                        <!--<Grid Grid.Column="1" Grid.Row="1">
+                            <CheckBox  x:Name="ShowScroll1" Foreground="LawnGreen" FontWeight="Bold"   Unchecked="ShowScroll1_Unchecked" Checked="ShowScroll1_Checked" />
+                        </Grid>-->
+                    </Grid>
+
+                    <Grid Margin="0,63,0,0" x:Name="UserControlView"/>
+                    <Grid  Name="hidden2" Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource StyleSanPham}" Foreground="Blue" Text="Sản Phẩm Mới"/>
+                        <!--<ListView ItemsSource="{Binding}" Grid.Row="1" IsSynchronizedWithCurrentItem="True" Padding="2" x:Name="ListNew" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="Transparent" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource StyleHoverBorder}">
+                                        <Grid  Style="{StaticResource StyleGrid}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Style="{StaticResource StyleTenSanPham}" ><InlineUIContainer>
+                                                    <AccessText Text="{Binding TenSP}" TextWrapping="WrapWithOverflow"/>
+                                                </InlineUIContainer></TextBlock>
+                                            <TextBlock Style="{StaticResource StyleGiaSanPham}" >
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0:0,0} VND">
+                                                        <Binding Path="GiaSP"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                            <TextBlock x:Name="txtMoTaNgan" Style="{StaticResource StyleMoTaNgan}" Text="{Binding MoTaNgan}"/>
+                                            <Image Grid.ColumnSpan="2" Grid.RowSpan="3"  Width="320" Height="220" Margin="0,0,0,10"  Source="{Binding HinhSP}"/>
+                                            <Ellipse VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Width="40" Height="40">
+                                               
+                                            </Ellipse>
+                                            <StackPanel Cursor="Hand" Height="28"  Orientation="Horizontal" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right">
+                                                <Button Click="Mua_Click" Margin="0,0,10,0" >
+                                                    <WrapPanel>
+                                                        <TextBlock Text="Mua" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                        <Image Margin="20,0,0,0" Source="Image/AddCart.png" Width="20"/>
+                                                    </WrapPanel>
+                                                </Button>
+                                                <Button Click="txtXemChiTiet_Click"  >
+                                                    <WrapPanel>
+                                                        <TextBlock Text="Xem" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                        <Image Margin="20,0,0,0" Source="Image/More.png" Width="20"/>
+                                                    </WrapPanel>
+                                                </Button>
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>-->
+                        <!--<Grid Grid.Column="1" Grid.Row="1">
+                            <CheckBox x:Name="ShowScroll2" Foreground="LawnGreen" FontWeight="Bold"  Unchecked="ShowScroll2_Unchecked" Checked="ShowScroll2_Checked"/>
+                        </Grid>-->
+                    </Grid>
+
+                    <Grid  Name="hidden3" Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource StyleSanPham}" Text="Sản Phẩm Bán Chạy"/>
+                        <!--<ListView ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Padding="2" x:Name="ListSell" ScrollViewer.VerticalScrollBarVisibility="Hidden" Background="Transparent" Grid.Row="1" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource StyleHoverBorder}">
+                                        <Grid  Style="{StaticResource StyleGrid}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Style="{StaticResource StyleTenSanPham}" ><InlineUIContainer>
+                                                    <AccessText Text="{Binding TenSP}" TextWrapping="WrapWithOverflow"/>
+                                                </InlineUIContainer></TextBlock>
+                                            <TextBlock Style="{StaticResource StyleGiaSanPham}" >
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0:0,0} VND">
+                                                        <Binding Path="GiaSP"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                            <TextBlock x:Name="txtMoTaNgan" Style="{StaticResource StyleMoTaNgan}" Text="{Binding MoTaNgan}"/>
+                                            <Image Grid.ColumnSpan="2" Grid.RowSpan="3"  Width="320" Height="220" Margin="0,0,0,10"  Source="{Binding HinhSP}"/>
+                                            <Ellipse VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Width="40" Height="40">
+                                                --><!--<Ellipse.Fill>
+                                                    <ImageBrush ImageSource="Image/BanChay.png"/>
+                                                </Ellipse.Fill>--><!--
+                                            </Ellipse>
+                                            <StackPanel Cursor="Hand" Height="28"  Orientation="Horizontal" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right">
+                                                <Button  Click="Mua_Click" Margin="0,0,10,0" >
+                                                    <WrapPanel>
+                                                        <TextBlock Text="Mua" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                        <Image Margin="20,0,0,0" Source="Image/AddCart.png" Width="20"/>
+                                                    </WrapPanel>
+                                                </Button>
+                                                <Button  Click="txtXemChiTiet_Click" >
+                                                    <WrapPanel >
+                                                        <TextBlock Text="Xem" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                        <Image Margin="20,0,0,0" Source="Image/More.png" Width="20"/>
+                                                    </WrapPanel>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>-->
+                        <!--<Grid Grid.Column="1" Grid.Row="1">
+                            <CheckBox x:Name="ShowScroll3" Foreground="LawnGreen" FontWeight="Bold"  Unchecked="ShowScroll3_Unchecked" Checked="ShowScroll3_Checked"/>
+                        </Grid>-->
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+            <!--Danh Sach Sam Pham And Nha San Xuat-->
+            <ScrollViewer Background="Transparent" Grid.Column="3" Margin="0,8,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" >
+                <Border  Name="hidden4" BorderBrush="SeaGreen" BorderThickness="1" Padding="5">
+                    <StackPanel >
+                        <!--Search-->
+                        <StackPanel  Panel.ZIndex="3" Grid.Column="3">
+                            <WrapPanel Margin="0,10,0,0">
+                                <TextBox BorderThickness="0"  KeyUp="txtTimKiem_KeyDown" KeyDown="txtTimKiem_KeyDown" Name="txtTimKiem" VerticalAlignment="Center" FontSize="18" FontFamily="Tekton Pro Cond" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Width="200" ></TextBox>
+                                <Button BorderThickness="0" Name="btnSearch" Click="btnSearch_Click" ToolTip="Tìm Kiếm"  Width="30" Height="30">
+                                    <Image  Width="30" Height="30" Source="Image/search.png"></Image>
+                                </Button>
+                            </WrapPanel>
+                            <ListView  Background="Transparent" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Padding="2" x:Name="ListTimKiemSP" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Name="btnKiem" Click="btnKiem_Click">
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Image Source="{Binding HinhSP}" Width="50" Height="50"></Image>
+                                                    <StackPanel Margin="5,0,0,0">
+                                                        <TextBlock Width="200" FontSize="15" FontWeight="Bold" Text="{Binding Path=TenSP }"></TextBlock>
+                                                        <TextBlock FontSize="10" Foreground="Red">
+                                                            <TextBlock.Text>
+                                                                <MultiBinding StringFormat="{}{0:0,0} VNĐ">
+                                                                    <Binding Path="GiaSP"/>
+                                                                </MultiBinding>
+                                                            </TextBlock.Text>
+                                                        </TextBlock>
+                                                    </StackPanel>
+                                                </WrapPanel>
+                                                <Border BorderBrush="Aqua" BorderThickness="1" ></Border>
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                        
+                        
+                        <Expander ExpandDirection="Down" IsExpanded="True" Height="auto" >
+                            <Expander.Header>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="GreenYellow" Text="Loại Sản Phẩm"></TextBlock>
+                            </Expander.Header>
+                            <StackPanel Margin="10,4,0,0">
+                                <ListView ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Padding="2" x:Name="ListDSLSP" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="Transparent" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Name="checkLoaiSP"  Margin="4" Foreground="LimeGreen" Tag="{Binding Path=MaLoaiSP}" Content="{Binding Path=TenLoaiSP}"></CheckBox>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <Button Click="btnLocDSLSP_Click" Background="Cyan" Name="btnLocDSLSP" Height="auto" Width="auto">
+                                    <TextBlock FontWeight="Bold" Foreground="DarkBlue" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Lọc Danh Sách"></TextBlock>
+                                </Button>
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander ExpandDirection="Down" IsExpanded="True" Height="auto" >
+                            <Expander.Header>
+                                <TextBlock FontSize="20" FontWeight="Bold"  Foreground="RosyBrown"  Text="Nhà Sản Xuất"></TextBlock>
+                            </Expander.Header>
+                            <StackPanel Margin="10,4,0,0">
+                                <ListView ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Padding="2" x:Name="ListDSNSX" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="Transparent" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox  Name="checkHangSX" ToolTip="{Binding Path=TenHangSX}" VerticalAlignment="Center" Margin="4" Foreground="LimeGreen" Tag="{Binding Path=MaHangSX}" >
+                                                <WrapPanel >
+                                                    <Image Margin="0,-5,0,0" Width="80" Height="30" Source="{Binding Path=Logo}"></Image>
+                                                    <TextBlock   TextAlignment="Center" Text="{Binding Path=TenHangSX}"></TextBlock>
+                                                </WrapPanel>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <Button Background="Cyan" Click="btnLocDSHSX_Click" Name="btnLocDSHSX" Height="auto" Width="auto">
+                                    <TextBlock FontWeight="Bold" Foreground="DarkBlue" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Lọc Danh Sách"></TextBlock>
+                                </Button>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+        </Grid>
+    </ScrollViewer>
+</Window>

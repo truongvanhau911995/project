@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="ShopCar.XemTheoLoai"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ShopCar.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900"
+             Loaded="UserControl_Loaded">
+    <!--<UserControl.Resources>
+        <local:Page x:Key="dbForWd"/>
+    </UserControl.Resources>-->
+
+    <Grid Margin="0,-70,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="650*" />
+
+        </Grid.RowDefinitions>
+        <TextBlock Margin="-20,10,0,0" Height="auto" MaxWidth="1000"  Style="{StaticResource StyleSanPham}" >
+            <AccessText Foreground="Red" Name="txtTile" TextWrapping="WrapWithOverflow"/>
+        </TextBlock>
+        <ScrollViewer  Grid.Row="1"  Margin="20,0,20,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <StackPanel >
+                <ListBox Width="1007" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" MaxHeight="495" Margin="0,0,20,0"  ItemsSource="{Binding}"  IsSynchronizedWithCurrentItem="True" Padding="2"  x:Name="ListHot"  Background="Transparent" >
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel MaxWidth="1000"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource StyleHoverBorder}">
+                                <Grid  Style="{StaticResource StyleGrid}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Style="{StaticResource StyleTenSanPham}" ><InlineUIContainer>
+                                                            <AccessText Text="{Binding TenSP}" TextWrapping="WrapWithOverflow"/>
+                                                        </InlineUIContainer></TextBlock>
+                                    <TextBlock Style="{StaticResource StyleGiaSanPham}" >
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0:0,0} VNĐ">
+                                                <Binding Path="GiaSP"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                    <TextBlock x:Name="txtMoTaNgan" Style="{StaticResource StyleMoTaNgan}" Text="{Binding MoTaNgan}"/>
+                                    <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Width="320" Height="220" Margin="0,0,0,10"  Source="{Binding HinhSP}"/>
+                                    <Ellipse VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Width="40" Height="40">
+                                        <!--<Ellipse.Fill>
+                                            <ImageBrush ImageSource="Image/BanChay.png"/>
+                                        </Ellipse.Fill>-->
+                                    </Ellipse>
+                                    <StackPanel Cursor="Hand" Height="28"  Orientation="Horizontal" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right">
+                                        <Button Name="Mua" Click="Mua_Click" Margin="0,0,10,0" >
+                                            <WrapPanel>
+                                                <TextBlock  Text="Mua" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                <Image Margin="20,0,0,0" Source="Image/AddCart.png" Width="20"/>
+                                            </WrapPanel>
+                                        </Button>
+                                        <Button Name="txtXemChiTiet" Click="txtXemChiTiet_Click"  >
+                                            <WrapPanel>
+                                                <TextBlock Text="Xem" FontSize="13" Foreground="BlueViolet" FontWeight="Bold"/>
+                                                <Image Margin="20,0,0,0" Source="Image/More.png" Width="20"/>
+                                            </WrapPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <WrapPanel MinWidth="200" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"   Grid.Row="2">
+                    <StackPanel MinWidth="200" >
+                        <WrapPanel HorizontalAlignment="Center" >
+                            <TextBlock FontWeight="Bold"  FontSize="20" Foreground="Red" Height="30">Page</TextBlock>
+                            <!--<TextBox BorderBrush="BlueViolet" BorderThickness="1" Foreground="DarkBlue" FontWeight="Bold" FontSize="15" Background="Transparent" TextAlignment="Center" Name="btnInPage" KeyDown="btnInPage_KeyDown" Text="{Binding Source={StaticResource dbForWd},Path=CurPage}" Margin="5,0,3,0" Width="25" Height="22"></TextBox>-->
+                            <Border Panel.ZIndex="-1"  BorderBrush="Red"  BorderThickness="10" RenderTransformOrigin="0.5,0.5" Height="34" Width="1" >
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="11.829"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                            </Border>
+                            <!--<TextBox Name="txtTotal" Foreground="DarkGreen" FontWeight="Bold"  FontSize="15" Background="Transparent" BorderThickness="0" IsReadOnly="True" Text="{Binding Source={StaticResource dbForWd},Path=TotalPage}" Margin="0,0,0,0" Width="12" Height="20"></TextBox>-->
+                        </WrapPanel>
+
+                        <WrapPanel Margin="0,10,0,50" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button Name="btnPrev" Click="btnPrev_Click" Height="30" Width="30" Content="Prev" Margin="0,0,3,0"></Button>
+                            <ListView BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True"  x:Name="ListButton"  Background="Transparent">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel MaxWidth="400"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource ImageButton}" VerticalAlignment="Center" HorizontalAlignment="Center" Name="btnNumber" Click="btnNumber_Click" Content="{Binding Path =I}" Margin="0,0,3,0" Height="25" Width="25"></Button>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Button Name="btnNext" Click="btnNext_Click" Height="30" Width="30"  Content="Next"></Button>
+                        </WrapPanel>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
