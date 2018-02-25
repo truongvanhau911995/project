@@ -1,0 +1,147 @@
+*{ margin:0px; padding:0px; }
+
+.top, menu, footer{
+	height:20px;
+	width: 100%;
+}
+a{
+	color: #666;
+	text-decoration: none;
+}
+a:hover{
+	color:red;
+	cursor:pointer;
+}
+.icon{
+	background: url(../images/icon-add.png) no-repeat;
+	padding-left: 16px;
+}
+.icon-e{
+	background: url(../images/icon-edit.png) no-repeat;
+	padding-left: 21px;
+}
+.icon-d{
+	background: url(../images/icon-delete.png) no-repeat;
+	padding-left: 21px;
+}
+#content{
+	width: 800px;
+	margin: 80px auto;
+	border:1px solid #418cba; border-radius: 6px;
+}
+#content div{
+	height:40px; line-height:40px;
+	background: #418cba; color: #FFF;	
+}
+#content div h3{
+	float: left;
+	margin-left: 10px;
+}
+#content div button{
+	float:right;
+	width: 62px;
+	height: 22px;
+	line-height:22px;
+	margin: 8px 10px;
+	border:0px;
+	border-radius: 3px;
+	background: #FFF;
+	color: #666;
+	box-shadow:inset 0 0 1px #333;
+}
+#content div button:hover{
+	background: #eaebeb;
+	cursor:pointer;
+}
+#content table{
+	width: 800px;
+	text-align: center;
+}
+
+#content table tr{
+	line-height:40px;
+}
+#content table td{
+	line-height:40px;
+	border-bottom: 1px solid #e1e2e1;
+}
+
+/*Bỏ gach chân cuối*/
+#content table tr:last-child td{
+	border-bottom:none;
+}
+#content table tr:first-child th{
+	border-bottom: 1px solid #e1e2e1;
+}
+
+
+#popup-bg{
+	width: 100%;
+	height:100%;
+	background: rgba(64,64,64,0.2);
+	position:absolute;
+}
+
+#popup{
+	position: absolute; /*Nỗi lên*/
+	z-index: 20;top: 20%;/*để nó mới nỗi lên trên #popup-bg đươc*/
+}
+
+#table-ajax{
+	background: #FFF;
+	padding: 3px 3px 2px 3px;
+	border-radius: 4px;
+	box-shadow: 0 0 1px #888;
+}
+
+#table-ajax div{
+	height: 34px; line-height:33px;
+	background: #f0f0f0; color:#333;
+}
+#table-ajax div h3{
+	padding-left:10px;
+}
+
+#table-ajax div img{
+	position: absolute; top:13px; right: 18px;
+}
+#table-ajax table{
+	padding:30px 50px 20px;
+}
+#table-ajax table td{
+	padding:10px;
+}
+#table-ajax table input[type='submit']{
+	height:25px;
+	font-weight: bold;
+	padding: 0 10px;
+	margin: 12px 10px 0 0 ;
+	border-radius: 4px;
+}
+
+
+/*==============================CHỈNH SƯA===========================================*/
+
+#popup-bg2{
+	width: 100%;
+	height:100%;
+	background: rgba(64,64,64,0.2);
+	position:absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

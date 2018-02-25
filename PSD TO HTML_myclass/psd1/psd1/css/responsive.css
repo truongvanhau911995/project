@@ -1,0 +1,54 @@
+@media screen and (max-width:640px){
+.item h2{
+	font-size:60px;
+	
+}
+.item h3{
+	font-size:20px;
+	
+}
+.item h4{
+font-size:15px;}
+.about-img{width:50%;margin-bottom:30px;}	
+.isotop-overlay h2{
+	color:#87d37c;
+	
+	font-size:15px;
+}
+.about-img{
+	max-width:292px;
+	margin:30px  auto;
+}
+.about-icon{
+	max-width:292px;
+	margin:30px  auto;
+}
+.pricing-table{
+	max-width:292px;
+	margin:30px  auto;
+}
+
+.count{
+	max-width:292px;
+	margin:30px  auto;
+}
+
+
+
+}
+@media screen and (max-width:480px){
+.element-item{
+		width:100%;
+	}
+.navbar-toggle {
+    float: right;
+    margin: 9px 62px;
+    padding: 9px 10px;
+    position: absolute;
+}
+.logo img {
+    margin-left: -14px;
+    margin-top: -15px;
+    width: 100px;
+}
+}

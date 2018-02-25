@@ -1,0 +1,93 @@
+@CHARSET "UTF-8";
+
+*{
+	padding:0px;
+	marin:0px;
+}
+
+#search{
+	width:250px;
+	margin:20px 0 20px 800px;
+	position: relative;
+}
+#txtsearch{
+	width:220px;
+	padding: 7px;
+	border: 1px solid #d1d1d1;
+	border-radius: 20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.15) inset;
+}
+
+#btnsubmit{
+	border: 0;
+	text-indent: 36px;
+	background: url(images/1.png) no-repeat;
+	width:20px;
+	height: 20px;
+	position: absolute;
+	top: 3px;
+	right:20px;
+	cursor: pointer;
+}
+#menu{
+	height: 30px;
+	width: 100%;
+	background: pink;
+	text-align: center;
+}
+.tk{
+	position: absolute;
+	width: 240px;
+	background: #fdfdfd;
+	border: 1px solid #f5f5f5;
+	border-radius:8px;
+	list-style: none;
+	background: #80ff80;
+	margin-top:0px;
+	display: none;
+}
+.tk li img{
+	float: right;
+}
+.tk li{
+	clear: both;
+	margin-top: 10px;
+	height:30px;
+}
+.tk li a{
+	line-hight:30px;
+	margin-top: 10px;
+}
+.tk li:hover, li:hover a{
+	background: #80ffff;
+	color:white;
+}
+/*================*/
+
+  #container{
+    	margin: 0 auto;
+    	width: 600px;
+    	height: 600px;
+    }
+    .row{
+    	float: left;
+    	width: 200px;
+    	height:300px;
+        margin-left: 20px;    
+    	border-radius: 4px;
+    	box-shadow: inset 1px 1px 5px #888;
+    	padding-top: 20px;
+    	text-align: center;
+    }
+    .row img{
+    	width:  140px;
+    	height: 140x;
+    	border-radius: 7px;
+    	
+    }
+    .money{
+    	color: red;
+    }
+    #container > p{
+    	color: blue;
+    }

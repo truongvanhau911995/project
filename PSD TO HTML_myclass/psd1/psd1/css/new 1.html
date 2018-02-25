@@ -1,0 +1,131 @@
+1173<html><!--% System.out.println("allotment.jsp caleld");%--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Online Indian Visa Form</title>
+<noscript>
+<meta http-equiv="refresh" content="0; URL=no_js.html">
+</noscript>
+
+<link href="css/Online_regular.css" rel="stylesheet" type="text/css">
+<link href="css/jquery_theme_tvoa.css" rel="stylesheet" type="text/css">
+<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="icon" href="images/favicon.ico"> 
+<script type="text/javascript" src="js/jquery-ui.js"></script> 
+<script type="text/javascript" src="js/declarations.js?rev=05082016"></script>
+<script type="text/javascript" src="js/blur_functions.js?rev=05082016"></script>
+<script type="text/javascript" src="js/submit_functions.js?rev=05082016"></script> 
+<style>
+.message{
+color: ‪#‎396DCE‬;
+font-family: Arial,sans-serif;
+font-size: 1.3em;
+font-weight: bold;
+line-height: 23px;
+}
+</style>
+<script>
+function startTimer(duration) {
+var timer = duration, minutes, seconds;
+var refreshIntervalId = setInterval(function () {
+minutes = parseInt(timer / 60, 10)
+seconds = parseInt(timer % 60, 10);
+minutes = minutes < 10 ? minutes : minutes;
+seconds = seconds < 10 ? seconds : seconds;
+// display.text(minutes + ":" + seconds);
+//display.text(seconds);
+$('‪#‎timer_msg‬').html('You can submit request after '+seconds+' seconds');
+if (--timer < 0) {
+$('#timer_msg').html(' <input type="submit" name="submit_btn" class="btn btn-primary" value="Confirm The Appointment">'); 
+return;
+}
+}, 1000);
+}
+window.onload = function () {
+document.onkeydown = function (e) {
+return (e.which || e.keyCode) != 116;
+}
+
+}
+$( document ).ready(function() {
+startTimer(20);
+
+});
+function image_loaded() {
+var width = $('‪#‎capt‬').css('width');
+if (width === 200 || width === "200px" || width === '200px') {
+$('‪#‎label1‬').html("Access Code");
+$('‪#‎label2‬').html("Enter Access Code");
+}
+else {
+$('#label1').html("Question");
+$('#label2').html("Answer");
+}
+}
+
+</script>
+</head>
+<body onload="backButtonOverride()">
+<!--onsubmit="return validate_basic_details_form();"-->
+<div class="wrapper">
+<div class="pageHeader"></div> 
+<div class="pageHeading1 text_center">
+Appointment for Visa Application 
+<a href="index.html"><img src="http://indianvisa-bangladesh.nic.in/visa/images/home.png…" style="width: 30px; height: 26px;" align="right"></a>
+</div>
+<div class="container">
+<form method="post" action="Allotment" autocomplete="off">
+<div class="row">
+<p class="style14" align="center"> Please follow the instructions carefully before proceeding further </p>
+<ul class="style8">
+<li class="style1"> Available date(s) of appointment are indicated below. Please select the date and click on <strong>“</strong> <strong>Confirm the Appointment’’</strong></li>
+</ul>
+<ul class="style8">
+<li class="style1"> The system will automatically generate online application in PDF format. Applicant must take a print out of the online application and submit the application along with all the required documents at the Mission/ Visa Office <strong> on the Date and Time</strong> indicated in the online application.</li>
+</ul>
+<ul class="style8">
+<li class="style1"> Applicant can also save the PDF and take print out later.</li>
+</ul>
+<ul class="style8">
+<li class="style1"> In case the Applicant could not take a print out of the application or save the PDF after confirming appointment, please use<strong> “</strong> <strong>Reprint’’ </strong>option at the first page of the online form and click on <strong>“ Reprint”</strong> using <strong>“Application Id”</strong> and<strong> “Date of birth”</strong>. </li>
+</ul>
+<ul class="style8">
+<li class="style1">If no date of appointment is available after registration , please try on next day by using <strong>“</strong> <strong>Reprint “</strong> option at the first page of the online form and click on to <strong>“</strong> <strong>Get Appointment</strong> <strong>“</strong> by using <strong>“Application Id”</strong> and <strong>“Date of birth”</strong>. </li>
+</ul>
+<p>&nbsp;</p>
+</div>
+<div class="row"> 
+<div class="col-31 mandatory">Select Date</div>
+<div class="col-32">
+<select name="DATE" size="1" id="allotment_date">
+<option value="">Select ..</option>
+<option value="16/08/2016">16/08/2016</option>
+</select>
+</div>
+<div class="col-33"></div>
+</div>
+<div class="row"> 
+<div class="col-31 mandatory">Enter OTP</div>
+<div class="col-32">
+<input style="margin-right: 0px; padding-right: 0px;" name="reotp" id="reotp" size="50" maxlength="6" type="password"><img title="Max field length is 6" style="position: relative; left: 0px; top: 0px; z-index: 999; cursor: pointer; vertical-align: bottom; border: 0px none; width: 14px; height: 19px; display: inline;" class="ife_marker" src="chrome://informenter/skin/marker.png" id="reotp_ife_marker_0">
+</div>
+<div class="col-33"></div>
+</div>
+<div class="row">
+<div class="col-1" id="label1">Question </div>
+<div class="col-2"> <img ssiindicator="" ssiloading="true" src="http://indianvisa-bangladesh.nic.in/visa/captcha…" id="capt" onload="image_loaded();" style="display: inline; outline: 3px solid rgba(0, 128, 255, 0.5);">
+</div>
+<div class="col-3"><a href="#" onclick="return refreshCaptcha();" style="vertical-align: baseline"><img src="http://indianvisa-bangladesh.nic.in/visa/images/refresh.png…" style="width: 30px; height: 30px; display: inline;"></a></div>
+</div>
+<div class="row">
+<div class="col-1 mandatory" id="label2"> Answer </div>
+<div class="col-2"><input style="margin-right: 0px; padding-right: 0px;" name="captcha" id="captcha" maxlength="20" type="text"><img title="Max field length is 20" style="position: relative; left: 325px; top: -16px; z-index: 999; cursor: pointer; vertical-align: bottom; border: 0px none; width: 14px; height: 19px; display: inline;" class="ife_marker" src="chrome://informenter/skin/marker.png" id="captcha_ife_marker_1"></div>
+<div class="col-3 errorify" style="list-style-type: none"></div>
+</div>
+
+<div class="row" style="text-align:center;font-weight:bold;font-size: 14px;padding-top:20px" id="timer_msg">You can submit request after 1 seconds</div>
+<input name="token" value="7e414e59-82e9-484a-9b27-037e23afd754" type="hidden">
+</form>
+
+</div>
+</div><!-- end of wrapper -->
+</body></html>

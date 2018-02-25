@@ -1,0 +1,467 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+/* =================================== */
+/*	Basic Style 
+/* =================================== */
+
+body {
+	background-color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 21px;
+	font-size: 13px;
+	color: #6a737b;
+}
+
+
+/* ===============MENU TOP BAR ==============*/
+
+.navbar-default{
+	background:rgba(0,0,0,.3);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.navbar {
+	border: 0;
+}
+.nav>li>a{
+	color: #fff !important;
+}
+.nav>li>a:hover{
+	color: #32B0EE !important;
+}
+#menu li:hover{
+	border-top: 2px solid #32B0EE;
+}
+
+/* =============== END MENU TOP BAR ==============*/
+
+
+/* ================START SLIDER=================== */ 
+
+#slider {
+	padding: 0;
+}
+
+span.color {
+	color: #0feb9e;
+}
+
+/* #slider .carousel-inner .item {
+	background-size: cover;
+}
+ */
+.carousel-caption {
+	top: 50%;
+}
+
+.carousel-caption h2 {
+	font-size: 62px;
+	font-weight: 300;
+}
+
+.carousel-caption h2 span {
+	font-weight: 800;
+}
+
+.carousel-caption h3 {
+	font-size: 48px;
+	font-weight: 300;
+	margin: 6px 0 20px;
+}
+
+.carousel-caption p {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.carousel-caption p:before,
+.carousel-caption p:after {
+	color: #0feb9e;
+	content: "___";
+	position: relative;
+	top: -8px;
+}
+
+.carousel-caption p:before {
+	right: 20px;
+}
+
+.carousel-caption p:after {
+	left: 20px;
+}
+
+.social-links {
+	margin-top: 5%;
+} 
+
+.social-links li {
+	display: inline-block;
+}
+
+.social-links li a {
+	color: rgba(255, 255, 255, 0.3);
+	display: block;
+	margin: 0 6px;
+}
+
+.social-links li a:hover {
+	color: #fff;
+}
+
+.carousel-indicators {  /* icon slider */
+	
+	left: inherit;
+	margin: 0;
+	right: 30px;
+	top: 49%;
+	width: 0;
+}
+
+.carousel-indicators li {
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	height: 8px;
+	width: 8px;
+}
+
+.carousel-indicators .active {
+	height: 8px;
+	width: 8px;
+}
+
+
+/* =================END SLIDER==================== */
+
+/*=========================================
+	Features-gioi thieu
+==========================================*/
+
+.features {
+  background-color: #f4f7f9;
+  padding: 70px 0;
+}
+.sec-title h2 {
+  color: #0eb493;
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.devider:before,
+.devider:after {
+  content: "______________________";
+  color: #e6e8ea;
+  position: relative;
+  bottom: 6px;
+}
+
+.devider:before {
+  right: 10px;
+}
+
+.devider:after {
+  left: 10px;
+}
+
+.mb50 {
+	margin-bottom: 50px;
+}
+
+
+/* .owl-controls {
+  bottom: -45px;
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.owl-controls .owl-page {
+  display: inline-block;
+}
+
+.owl-controls .owl-page span {
+  border: 1px solid #C7CED3;
+  border-radius: 20px;
+  display: block;
+  height: 8px;
+  margin: 5px 4px;
+  width: 8px;
+}
+
+.owl-controls .owl-page.active span {
+  background: #062033;
+  border: 0;
+}
+ */
+.service-icon {
+  border: 1px solid #0eb493;
+  border-radius: 100%;
+  color: #0eb493;
+  float: left;
+  padding: 10px 13px;
+}
+
+.service-desc {
+  margin-left: 70px;
+  position: relative;
+  top: 5px;
+}
+
+.service-desc h3 {
+  color: #062033;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+
+/* =============SKILL ==================== */
+#codeconSkills {
+    width: 100% !important; 
+}
+
+/* =============STOPPE portfolio =================*/
+
+#portfolio{
+	padding: 100px 0;
+}
+#portfolio p{
+	max-width: 700px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+* { box-sizing: border-box; }
+
+/* ---- button ---- */
+.button {
+	display: inline-block;
+	padding: 0.5em 1.0em;
+	background: #000000;
+	border: none;
+	border-radius: 7px;
+	background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+	color: #fff;
+	font-family: sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline:  none;
+	margin-bottom: 10px;
+}
+
+.button:hover {
+	background-color: #87d37c;
+	color: #fff;
+}
+
+.button:active,
+.button.is-checked {
+	background-color: #87d37c; 
+}
+
+.button.is-checked {
+	color: white;
+	/* text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8); */
+}
+
+/* .button:active {
+	box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);// tạo đọ bóng 3d cho button
+}
+*/
+/* ---- button-group ---- */
+
+.button-group {
+	margin-bottom: 63px;
+}
+
+.button-group .button {
+	/* 	float: left;   => bo thuoc tinh nay de vao giua*/ 
+	border-radius: 0;
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+/* ---- .element-item ---- */
+.element-item {
+	position: relative;
+	float: left;
+	color: #262524;
+	width: 25%;
+	border: 0 solid #fff;
+	overflow: hidden;
+}
+.element-item img{
+	width: 100%;
+	height: 100%;
+}
+.isotope-overlay{
+	position: absolute;
+	background: rgba(0,0,0,.5);
+	width: 100%;
+	height: 100%;
+	top: -100%;
+	transition: .5s; 
+
+}
+
+.element-item:hover .isotope-overlay{
+	top:0;
+}
+
+.isotope-overlay h2{
+	color: #87d37c;
+	margin-top: 150px;
+}
+/* =============end STOPPE portfolio =================*/
+
+
+/* ----------------TEAM HERO -------------------*/
+
+.our-team .pic{
+    position: relative;
+    overflow: hidden;
+}
+.our-team .pic img{
+    width:100%;
+    height: auto;
+    transition:all 0.20s ease-in-out;
+}
+.our-team:hover img{
+    transform: scale(1.1,1.1);
+}
+.our-team .over-layer{
+    position: absolute;
+    left:0;
+    bottom:-100%;
+    width:100%;
+    height:100%;
+    padding: 25px 15px;
+    background:rgba(176, 13, 42,0.6);
+    transition:all 0.20s ease-in-out;
+}
+.our-team:hover .over-layer{
+    bottom:0;
+}
+.our-team .description{
+    font-size: 14px;
+    color:#fff;
+}
+.our-team .social-link{
+    padding:0;
+    margin:0;
+    list-style:none;
+    position: absolute;
+    bottom:8%;
+    left:8%;
+}
+.our-team .social-link li{
+    display:inline-block;
+}
+.our-team .social-link li a{
+    border:1px solid #fff;
+    width:25px;
+    height:25px;
+    color: #da3e65;
+    background:#fff;
+    line-height:25px;
+    text-align:center;
+    transition:all 0.3s ease 0s;
+}
+.our-team .social-link li a:hover{
+    text-decoration:none;
+    color:#333;
+}
+.our-team .team-prof{
+    text-align:center;
+}
+.our-team .team-prof a{
+    color:#333;
+    font-size:16px;
+    letter-spacing:1px;
+    text-transform: uppercase;
+}
+.our-team .team-prof a:hover{
+    text-decoration:none;
+    color:#da3e65;
+}
+.our-team .team-prof small{
+    color:#da3e65;
+    display: block;
+    font-size:12px;
+    margin-top:3%;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 990px){
+    .our-team{
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* ------------END TEAM HERO --------------*/
+
+/* =============COUNTER JS================ */
+
+#facts {
+	background-image: url("../images/parallax/city.jpg");
+	background-color: rgba(6,32,51,.8);
+	background-attachment: fixed !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 0;
+}
+
+.facts .devider:before,
+.facts .devider:after {
+	color: #737C85;
+}
+
+.facts .devider i {
+	color: #fff;
+}
+
+.parallax-overlay {
+	background-color: rgba(6,32,51,.8);
+	padding: 70px 0;
+}
+
+.counters-item {
+  color: #fff;
+}
+
+.counters-item i {
+  border: 1px solid #737C85;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 120px;
+  margin: 0 0 35px;
+  padding: 40px 0 0;
+  width: 120px;
+}
+
+.counters-item span {
+  display: block;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 60px;
+}
+
+.counters-item p {
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 15px;
+  text-transform: uppercase;
+} */
+
+
+
+/* =============END COUTER JS============= */
